@@ -1,3 +1,4 @@
 export (HCM)
-importFrom("MASS","mvrnorm")
-importFrom("stats","as.dist","hclust","cutree","cor")
+export (CLC)
+importFrom("MASS","mvrnorm","ginv")
+importFrom("stats","as.dist","hclust","cutree","cor","cov","var","pchisq")

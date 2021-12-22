@@ -1,20 +1,23 @@
-\name{HCM}
-\alias{HCM}
+\name{CLC}
+\alias{CLC}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Hierarchical Clustering Method
+Clustering Linear Combination Method
 }
 \description{
-The bottom-up hierarchical clustering method to partition a large number of phenotypes into disjoint clusters within each category.
+The clustering linear combination method is used to combine test statistics within each category based on the phenotypic clusters and obtain p-values from each phenotypic category.
 }
 \usage{
-HCM(y)
+CLC(x,y,L)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{y}{
-matrix: the phenotype needs to be grouped into disjoint clusters. Each row respresents an individual; Each column represents a phenotype.
+  \item{x}{numeric: the genotypic score of n individuals at a genetic variant of interest, where the element can be 0, 1, 2 is the number of minor alleles that the i^th individual carries at athe genetic variant.}
+  \item{y}{matrix: the phenotype needs to be grouped into disjoint clusters. Each row respresents an individual; Each column represents a phenotype.}
+  \item{L}{numeric: number of clusters estimated by Hierarchical Clustering Method in step 1.}
 }
+\references{
+Sha, Q., et al. A clustering linear combination approach to jointly analyze multiple phenotypes for GWAS. Bioinformatics 2019;35(8):1373-1379.
 }
 \examples{
 ## Generate both genotype and phenotype data
@@ -56,5 +59,7 @@ y=lapply(tmp,t)
 ## Partition a large number of phenotypes into disjoint clusters within each category.
 y_CL=y[[10]]
 L0=HCM(y_CL)
+## Use CLC to calculate p-value for each phenotypic category
+CLC(x,y_CL,L0)
 }
 
