@@ -1,1 +1,3 @@
-exportPattern("^[[:alpha:]]+")
+export (HCM)
+importFrom("MASS","mvrnorm")
+importFrom("stats","as.dist","hclust","cutree","cor")
