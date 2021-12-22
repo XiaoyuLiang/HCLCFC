@@ -1,6 +1,7 @@
 # HCLC-FC: a Novel Statistical Method for Phenome-Wide Association Studies
 
 We derived a novel and powerful multivariate method, which we referred to as HCLC-FC (Hierarchical Clustering Linear Combination with False discovery rate Control), to test the association between a genetic variant with multiple phenotypes for each phenotypic category in phenome-wide association studies (PheWAS). The R package HCLCFC is a novel tool that (1) allows users to partition a large number of phenotypes into disjoint clusters; (2) applicable to electronic medical records (EMR)-based PheWAS.
+hhh
 
 The proposed method involves three steps. 
 
