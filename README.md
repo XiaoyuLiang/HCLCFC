@@ -75,6 +75,12 @@ y=lapply(tmp,t)
 y_CL=y[[10]]
 L0=HCM(y_CL)
 CLC(x,y_CL,L0)
+
+set.seed(123)
+x <- rnorm(50, mean = c(rep(0, 25), rep(3, 25)))
+p <- 2*pnorm(sort(-abs(x)))
+## Calculate threshold for FDR-controlling
+t=FDR_Control(pv=p,alpha0=0.05)
 ```
 
 ## 3. Bug reports and feature requests
