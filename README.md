@@ -1,6 +1,6 @@
 # HCLC-FC: a Novel Statistical Method for Phenome-Wide Association Studies
 
-The R package i2d is a novel tool that allows users to transform an image into a simulated dataset that can be used to extract and analyze the complex information in biomedical and biological research. The package also includes three novel and efficient methods for image clustering based on finding minimum spanning tree by Prim's algorithm, detecting communities by modularity optimization, and finding the branches of the backbone of minimum spanning tree.
+The R package HCLCFC is a novel tool that allows users to transform an image into a simulated dataset that can be used to extract and analyze the complex information in biomedical and biological research. The package also includes three novel and efficient methods for image clustering based on finding minimum spanning tree by Prim's algorithm, detecting communities by modularity optimization, and finding the branches of the backbone of minimum spanning tree.
 
 The package can be used for generating data sets for
 
