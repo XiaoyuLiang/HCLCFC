@@ -1,4 +1,5 @@
 export (HCM)
 export (CLC)
+export (FDR_Control)
 importFrom("MASS","mvrnorm","ginv")
 importFrom("stats","as.dist","hclust","cutree","cor","cov","var","pchisq")

@@ -16,6 +16,9 @@ HCM(y)
 matrix: the phenotype needs to be grouped into disjoint clusters. Each row respresents an individual; Each column represents a phenotype.
 }
 }
+\references{
+Liang, X., et al. A hierarchical clustering method for dimension reduction in joint analysis of multiple phenotypes. Genet Epidemiol 2018;42(4):344-353.
+}
 \examples{
 ## Generate both genotype and phenotype data
 n=200

@@ -19,8 +19,8 @@ These instructions will get you a copy of the project up and running on your loc
 ```
 if (!requireNamespace("BiocManager", quietly = TRUE))
     install.packages("BiocManager")
-BiocManager::install("EBImage")
-BiocManager::install("igraph")
+BiocManager::install("MASS")
+BiocManager::install("stats")
 ```
 
 ### Installation
@@ -37,8 +37,44 @@ library("HCLCFC")
 
 ## 2. Running the tests
 ```
-data(i2d_Example,package="i2d")
-image.dat <- i2d(image=i2d_Example, p.n=5000)
+n=200
+K=100
+maf=0.3
+c2=0.5
+rho_fa=0.2
+rho=0.3
+beta=0.012
+M=10
+k=K/M
+lm0=beta*seq(k)
+lambda=rbind(matrix(0,M-1,k),lm0)
+Ha=100
+x=sample(c(0:2),size=n,replace=T,prob=c((1-maf)^2,2*maf*(1-maf),maf^2))
+Sigma_fa=(1-rho_fa)*diag(M)+rho_fa*matrix(rep(1,M^2),M)
+Sigma=matrix(NA,k,k)
+for (i in 1:k){
+  for (j in 1:k){
+    Sigma[i,j]=rho^(abs(i-j))
+  }
+}
+y=matrix(NA,n,K)
+for (i in 1:n){
+  f=mvrnorm(1,rep(0,M),Sigma_fa)
+  y0=matrix(NA,M,k)
+  for (m in 1:M){
+    E=mvrnorm(1,rep(0,k),Sigma)
+    y0[m,]=x[i]*lambda[m,]+sqrt(c2)*f[m]*rep(1,k)+sqrt(1-c2)*E
+  }
+  y1=t(y0)
+  y[i,]=c(y1)
+}
+ysplit=rep(1:M, times=rep(k,M))
+tmp=split.data.frame(t(y),ysplit)
+y=lapply(tmp,t)
+
+y_CL=y[[10]]
+L0=HCM(y_CL)
+CLC(x,y_CL,L0)
 ```
 
 ## 3. Bug reports and feature requests
